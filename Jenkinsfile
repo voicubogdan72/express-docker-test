@@ -4,7 +4,7 @@ pipeline{
     stages{
         stage("Clone the repo"){
             steps{
-                git branch:'main' url:'https://github.com/voicubogdan72/express-docker-test.git'
+                git branch:'main', url:'https://github.com/voicubogdan72/express-docker-test.git'
             }
         }
         stage("Run containers"){
