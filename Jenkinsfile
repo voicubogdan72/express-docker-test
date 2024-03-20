@@ -13,17 +13,28 @@ pipeline{
         //     }
         // }
 
-        stage("Docker build"){
+        stage("Install dep"){
             steps{
-                sh 'docker build -t api .'
+                sh 'npm install'
+            }
+        }
+        stage('Run app'){
+            steps{
+                sh "npm run dev"
             }
         }
 
-        stage("Run docker"){
-            steps{
-                sh 'docker run -d -p 8888:7777 api'
-            }
-        }
+        // stage("Docker build"){
+        //     steps{
+        //         sh 'docker build -t api .'
+        //     }
+        // }
+
+        // stage("Run docker"){
+        //     steps{
+        //         sh 'docker run -d -p 8888:7777 api'
+        //     }
+        // }
 
         // stage("Install Depende"){
         //     steps{
