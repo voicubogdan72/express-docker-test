@@ -13,16 +13,31 @@ pipeline{
         //     }
         // }
 
-        stage("Install dep"){
+        stage('Build docker image'){
             steps{
-                sh 'npm install'
+                script{
+                    docker.build("api:${env.BUILD_ID}")
+                }
             }
         }
-        stage('Run app'){
+        stage('Run container'){
             steps{
-                sh "npm run dev"
+                script{
+                    docker.image("api:${env.BUILD_ID}").run('-d -p 3000:3000')
+                }
             }
         }
+
+        // stage("Install dep"){
+        //     steps{
+        //         sh 'npm install'
+        //     }
+        // }
+        // stage('Run app'){
+        //     steps{
+        //         sh "npm run dev"
+        //     }
+        // }
 
         // stage("Docker build"){
         //     steps{
