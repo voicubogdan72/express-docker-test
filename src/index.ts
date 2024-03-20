@@ -24,19 +24,21 @@ app.get("/", async (req: Request, res: Response) => {
 });
 
 app.get("/db", async (req: Request, res: Response) => {
-  try {
-    await myDataSource
-      .initialize()
-      .then(() => {
-        console.log("Conected to db!!");
-        res.send(`DB::!!! CONECTED `);
-      })
-      .catch((err) => {
-        console.error("Error tot connect", err);
-      });
-  } catch (error) {
-    console.error(error);
-  }
+  //   try {
+  //     await myDataSource
+  //       .initialize()
+  //       .then(() => {
+  //         console.log("Conected to db!!");
+  //         res.send(`DB::!!! CONECTED `);
+  //       })
+  //       .catch((err) => {
+  //         res.send("NO DB");
+  //         console.error("Error tot connect", err);
+  //       });
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  res.send("OKKK!!!");
 });
 
 app.get("/test", (req: Request, res: Response) => {
