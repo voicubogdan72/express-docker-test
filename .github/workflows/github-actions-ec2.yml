@@ -40,11 +40,12 @@ jobs:
           HOSTNAME: ${{ secrets.HOSTNAME }}
           USER_NAME: ${{ secrets.USER }}
         run: |
-          git clone https://github.com/voicubogdan72/express-docker-test.git 
-          ls 
-          cd express-docker-test
-          npm install
-          npm run build
-          npm run start
-          '
+          git clone https://github.com/voicubogdan72/express-docker-test.git  && cd express-docker-test
+      - name: Install Depende
+        run: npm install
+      - name: Build App
+        run: npm run build
+      - name: Run App
+        run: npm run start
+
         # ssh -i $PRIVATE_KEY $USER_NAME@$HOSTNAME "git clone https://github.com/voicubogdan72/express-docker-test.git && cd express-docker-test && npm install && npm run build && npm start"
