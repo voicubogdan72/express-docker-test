@@ -40,7 +40,7 @@ jobs:
           HOSTNAME: ${{ secrets.HOSTNAME }}
           USER_NAME: ${{ secrets.USER }}
         run: |
-          ssh -i $PRIVATE_KEY $USER_NAME@$HOSTNAME
+          ssh -i ${{ secrets.EC2_PRIVATE_KEY }} ${{ secrets.USER }}@${{ secrets.HOSTNAME }}
           git clone https://github.com/voicubogdan72/express-docker-test.git
           ls
           cd express-docker-test
