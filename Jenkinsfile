@@ -20,7 +20,7 @@ pipeline{
                 }
             }
         }
-        stage('Run container'){
+        stage('Run container in docker'){
             steps{
                 script{
                     docker.image("api:${env.BUILD_ID}").run('-d -p 3000:3000')
