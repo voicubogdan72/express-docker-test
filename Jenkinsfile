@@ -7,9 +7,26 @@ pipeline{
                 git branch:'main', url:'https://github.com/voicubogdan72/express-docker-test.git'
             }
         }
-        stage("Run containers"){
+        // stage("Run containers"){
+        //     steps{
+        //         sh 'docker compose up -d'
+        //     }
+        // }
+
+        stage("Install Depende"){
             steps{
-                sh 'docker compose up -d'
+                sh 'npm install'
+            }
+        }
+
+        stage("Build App"){
+            steps{
+                sh 'npm run build'
+            }
+        }
+        stage("Run App"){
+            steps{
+                sh "npm run start"
             }
         }
     }
