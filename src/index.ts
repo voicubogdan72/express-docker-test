@@ -8,19 +8,20 @@ const app: Express = express();
 const port = process.env.PORT || 7777;
 
 app.get("/", async (req: Request, res: Response) => {
-  try {
-    await myDataSource
-      .initialize()
-      .then(() => {
-        console.log("Conected to db!!");
-        res.send(`DB::!!! CONECTED `);
-      })
-      .catch((err) => {
-        console.error("Error tot connect", err);
-      });
-  } catch (error) {
-    console.error(error);
-  }
+  //   try {
+  //     await myDataSource
+  //       .initialize()
+  //       .then(() => {
+  //         console.log("Conected to db!!");
+  //         res.send(`DB::!!! CONECTED `);
+  //       })
+  //       .catch((err) => {
+  //         console.error("Error tot connect", err);
+  //       });
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  res.send("Ok1!!!!");
 });
 
 app.get("/db", async (req: Request, res: Response) => {
