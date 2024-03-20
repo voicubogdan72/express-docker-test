@@ -13,21 +13,29 @@ pipeline{
         //     }
         // }
 
-        stage("Install Depende"){
+        stage("Docker build"){
             steps{
-                sh 'npm install'
+                sh 'docker build -t api .'
             }
         }
 
-        stage("Build App"){
-            steps{
-                sh 'npm run build'
-            }
-        }
-        stage("Run App"){
-            steps{
-                sh "npm run start"
-            }
-        }
+        stage("docker run -d -p 8888:7777 api")
+
+        // stage("Install Depende"){
+        //     steps{
+        //         sh 'npm install'
+        //     }
+        // }
+
+        // stage("Build App"){
+        //     steps{
+        //         sh 'npm run build'
+        //     }
+        // }
+        // stage("Run App"){
+        //     steps{
+        //         sh "npm run start"
+        //     }
+        // }
     }
 }
