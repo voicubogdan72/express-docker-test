@@ -19,7 +19,11 @@ pipeline{
             }
         }
 
-        stage("docker run -d -p 8888:7777 api")
+        stage("Run docker"){
+            steps{
+                sh 'docker run -d -p 8888:7777 api'
+            }
+        }
 
         // stage("Install Depende"){
         //     steps{
