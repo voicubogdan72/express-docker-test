@@ -48,4 +48,5 @@ jobs:
           npm install
           npm run build
           npm run start
+          '
         # ssh -i $PRIVATE_KEY $USER_NAME@$HOSTNAME "git clone https://github.com/voicubogdan72/express-docker-test.git && cd express-docker-test && npm install && npm run build && npm start"
