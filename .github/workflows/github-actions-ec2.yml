@@ -28,7 +28,7 @@ on:
 
 jobs:
   build:
-    runs-on: [ip-172-31-25-234]
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
