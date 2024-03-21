@@ -54,7 +54,7 @@ on:
     branches: [main]
 env:
   AWS_REGION: eu-central-1
-  ECR_REPOSITORY: devops-tes
+  ECR_REPOSITORY: devops-test
 jobs:
   deploy:
     name: Deploy
