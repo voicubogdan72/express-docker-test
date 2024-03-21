@@ -53,5 +53,7 @@ services:
   mongo:
     build: ./db/mongo
     container_name: mongo-db
+    ports:
+      - "27017:27017"
     networks:
       - my_network
