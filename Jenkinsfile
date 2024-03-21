@@ -15,7 +15,7 @@ pipeline{
 
         stage('Build docker image'){
             steps{
-                sh 'build -t api .'
+                sh 'docker build -t api .'
             }
         }
         stage('Run docker image'){
