@@ -15,18 +15,29 @@ pipeline{
 
         stage('Build docker image'){
             steps{
-                script{
-                    docker.build("api:${env.BUILD_ID}")
-                }
+                sh 'build -t api .'
             }
         }
-        stage('Run container in docker'){
+        stage('Run docker image'){
             steps{
-                script{
-                    docker.image("api:${env.BUILD_ID}").run('-d -p 7777:7777')
-                }
+                sh 'docker run  -d -p 7777:7777 api'
             }
         }
+
+        // stage('Build docker image'){
+        //     steps{
+        //         script{
+        //             docker.build("api:${env.BUILD_ID}")
+        //         }
+        //     }
+        // }
+        // stage('Run container in docker'){
+        //     steps{
+        //         script{
+        //             docker.image("api:${env.BUILD_ID}").run('-d -p 7777:7777')
+        //         }
+        //     }
+        // }
 
         // stage("Install dep"){
         //     steps{
