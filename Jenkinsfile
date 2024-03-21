@@ -15,7 +15,7 @@ pipeline{
 
         stage('Build app without docker'){
             steps{
-                sh 'npm install && npm build'
+                sh 'npm install && npm run build'
             }
         }
         stage('Run app'){
