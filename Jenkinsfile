@@ -13,6 +13,17 @@ pipeline{
         //     }
         // }
 
+        stage('Build app without docker'){
+            steps{
+                sh 'npm install && npm build'
+            }
+        }
+        stage('Run app'){
+            steps{
+                sh 'npm start'
+            }
+        }
+
         stage('Build docker image'){
             steps{
                 sh 'docker build -t api .'

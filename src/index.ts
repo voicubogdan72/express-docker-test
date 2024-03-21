@@ -2,12 +2,33 @@ import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 // import { User } from "./entity/user.entity";
 import { myDataSource } from "./app-data-source";
+import mongoose from "mongoose";
 dotenv.config();
 
 const app: Express = express();
 const port = process.env.PORT || 7777;
 
 app.get("/", async (req: Request, res: Response) => {
+  mongoose
+    .connect("mongodb://localhost:27017/example", {})
+    .then(() => {
+      console.log("Connected to MongoDB");
+      res.send("Ok connected!");
+    })
+    .catch((error) => {
+      console.error("Error connecting to MongoDB", error);
+    });
+  // try {
+  //   const db = await mongoose.connect("mongodb://localhost:27017/example");
+  //   if (db) {
+  //     console.log(db);
+  //     res.send("Ok2!!!!");
+  //   } else {
+  //     res.send("No db");
+  //   }
+  // } catch (error) {
+  //   res.send({ msg: error });
+  // }
   //   try {
   //     await myDataSource
   //       .initialize()
@@ -21,7 +42,6 @@ app.get("/", async (req: Request, res: Response) => {
   //   } catch (error) {
   //     console.error(error);
   //   }
-  res.send("Ok1!!!!");
 });
 
 app.get("/db", async (req: Request, res: Response) => {
